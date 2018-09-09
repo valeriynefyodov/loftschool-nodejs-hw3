@@ -1,0 +1,20 @@
+{
+  "goods": [
+    {
+      "photo": "Parallel Python  Intro_preview.jpeg",
+      "name": "Python",
+      "price": "323"
+    }
+  ],
+  "user": {
+    "email": "max@max.max",
+    "password": "12323odf"
+  },
+  "feedbacks": [],
+  "skills": {
+    "age": "44",
+    "concerts": "34",
+    "cities": "65",
+    "years": "11"
+  }
+}
