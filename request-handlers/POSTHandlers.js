@@ -8,13 +8,13 @@ function registerPOSTHandlers(app) {
 
     if (!name || !email) {
       req.flash('indexStatus', 'Пожалуйста, заполните обязательные поля.');
-      return  res.redirect('/');
+      return  res.status(400).redirect('/');
     }
 
     db.addFeedback({ name, email, message });
     
     req.flash('indexStatus', 'Спасибо за Ваш отзыв! :)');
-    return res.redirect('/');
+    return res.status(200).redirect('/');
   });
 
   app.post('/login', function (req, res) {
@@ -22,13 +22,13 @@ function registerPOSTHandlers(app) {
 
     if (!email || !password) {
       req.flash('loginStatus', 'Введите все данные пользователя!');
-      return res.redirect('/login');
+      return res.status(400).redirect('/login');
     }
 
     db.saveUser({ email, password });
 
     req.flash('loginStatus', 'Вы успешно авторизированы!');
-    return res.redirect('/login');
+    return res.status(200).redirect('/login');
   });
 
   app.post('/admin/skills', function (req, res) {
@@ -36,13 +36,13 @@ function registerPOSTHandlers(app) {
 
     if (!age || !concerts || !cities || !years) {
       req.flash('skillsStatus', 'Пожалуйста, заполните все поля.');
-      return res.redirect('/admin');
+      return res.status(400).redirect('/admin');
     }
 
     db.updateSkills({ age, concerts, cities, years });
 
     req.flash('skillsStatus', 'Счётчики обновлены!');
-    return res.redirect('/admin');
+    return res.status(200).redirect('/admin');
   });
 
   app.post('/admin/upload', function (req, res) {
@@ -50,13 +50,13 @@ function registerPOSTHandlers(app) {
 
     if (!photo || !name || !price) {
       req.flash('uploadStatus', 'Пожалуйста, заполните все поля.');
-      return res.redirect('/admin');
+      return res.status(400).redirect('/admin');
     }
 
     db.addProduct({ photo, name, price });
     
     req.flash('uploadStatus', 'Продукт успешно сохранён!');
-    return res.redirect('/admin');
+    return res.status(200).redirect('/admin');
   });
 
 }
