@@ -1,2 +1,2 @@
 # loftschool-nodejs-hw3
-Homework #1 for Loftschool's Node.js course
+Homework #3 for Loftschool's Node.js course
